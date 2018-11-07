@@ -1,0 +1,9 @@
+{
+  "name": "algorithms-and-interviews",
+  "version": "1.0.0",
+  "description": "It is all about algorithms and interview questions.",
+  "main": "index.js",
+  "repository": "git@github.com:guimochila/algorithms-and-interviews.git",
+  "author": "Guilherme <gui.mochila@gmail.com>",
+  "license": "MIT"
+}
