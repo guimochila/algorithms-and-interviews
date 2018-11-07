@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "git@github.com:guimochila/algorithms-and-interviews.git",
   "author": "Guilherme <gui.mochila@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }
