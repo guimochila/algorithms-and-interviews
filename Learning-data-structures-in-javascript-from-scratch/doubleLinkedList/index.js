@@ -52,4 +52,34 @@ class LinkedList {
 
     return value;
   }
+
+  // Recursion
+  search(value, node = this.head) {
+    if (!this.head) {
+      return null;
+    }
+
+    if (node.value === value) {
+      return node.value;
+    }
+
+    if (node.next) return this.search(value, node.next);
+
+    return null;
+  }
+
+  // While loop
+  searchWhile(value) {
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return currentNode.value;
+      }
+
+      currentNode = currentNode.next;
+    }
+
+    return null;
+  }
 }
