@@ -82,4 +82,20 @@ class LinkedList {
 
     return null;
   }
+
+  indexOf(value) {
+    let indexes = [];
+    let currentNode = this.head;
+    let index = 0;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        indexes.push(index);
+      }
+      index++;
+      currentNode = currentNode.next;
+    }
+
+    return indexes;
+  }
 }
