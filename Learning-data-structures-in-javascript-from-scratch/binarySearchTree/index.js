@@ -66,6 +66,19 @@ class BST {
       fn(this.value, order);
     }
   }
+
+  breadthFirstTraversal(fn) {
+    const queue = [this];
+
+    while (queue.length) {
+      let temp = queue.shift();
+
+      fn(temp);
+
+      if (temp.left) queue.push(temp.left);
+      if (temp.right) queue.push(temp.right);
+    }
+  }
 }
 
 const bst = new BST(10);
@@ -79,3 +92,4 @@ console.log('-------');
 bst.depthFirstTraversalSelect(item => console.log(item), 'in-order');
 console.log('-------');
 bst.depthFirstTraversalSelect(item => console.log(item), 'post-order');
+bst.breadthFirstTraversal(item => console.log(item.value));
