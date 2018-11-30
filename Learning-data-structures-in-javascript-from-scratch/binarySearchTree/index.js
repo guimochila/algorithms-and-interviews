@@ -79,6 +79,16 @@ class BST {
       if (temp.right) queue.push(temp.right);
     }
   }
+
+  getMinVal() {
+    if (this.left) return this.left.getMinVal();
+    else return this.value;
+  }
+
+  getMaxVal() {
+    if (this.right) return this.right.getMaxVal();
+    else return this.value;
+  }
 }
 
 const bst = new BST(10);
