@@ -43,6 +43,29 @@ class BST {
       this.right.depthFirstTraversal(fn);
     }
   }
+
+  /* Depth First Traversal  - Selecting the order */
+  depthFirstTraversalSelect(fn, order) {
+    if (order === 'pre-order') {
+      fn(this.value);
+    }
+
+    if (this.left) {
+      this.left.depthFirstTraversalSelect(fn, order);
+    }
+
+    if (order === 'in-order') {
+      fn(this.value, order);
+    }
+
+    if (this.right) {
+      this.right.depthFirstTraversalSelect(fn, order);
+    }
+
+    if (order === 'post-order') {
+      fn(this.value, order);
+    }
+  }
 }
 
 const bst = new BST(10);
@@ -51,3 +74,8 @@ bst.insert(9);
 bst.insert(3);
 
 console.log(bst.contains(3));
+bst.depthFirstTraversalSelect(item => console.log(item), 'pre-order');
+console.log('-------');
+bst.depthFirstTraversalSelect(item => console.log(item), 'in-order');
+console.log('-------');
+bst.depthFirstTraversalSelect(item => console.log(item), 'post-order');
