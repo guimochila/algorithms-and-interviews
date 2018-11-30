@@ -30,6 +30,19 @@ class BST {
 
     return false;
   }
+
+  /* Depth First Traversal  - In Order*/
+  depthFirstTraversal(fn) {
+    fn(this.value);
+
+    if (this.left) {
+      this.left.depthFirstTraversal(fn);
+    }
+
+    if (this.right) {
+      this.right.depthFirstTraversal(fn);
+    }
+  }
 }
 
 const bst = new BST(10);
