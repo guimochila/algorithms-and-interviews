@@ -16,6 +16,20 @@ class BST {
       this.right.insert(value);
     }
   }
+
+  contains(value) {
+    if (value === this.value) {
+      return true;
+    }
+
+    if (value < this.value && this.left) {
+      return this.left.contains(value);
+    } else if (this.right > value && this.right) {
+      return this.right.contains(value);
+    }
+
+    return false;
+  }
 }
 
 const bst = new BST(10);
@@ -23,4 +37,4 @@ bst.insert(11);
 bst.insert(9);
 bst.insert(3);
 
-console.log(bst);
+console.log(bst.contains(3));
