@@ -43,10 +43,25 @@ class HashTable {
       currentNode.next = new HashNode(key, value);
     }
   }
+
+  get(key) {
+    const index = this.hash(key);
+    let currentNode = this.buckets[index];
+
+    while (currentNode) {
+      if (currentNode.key === key) {
+        return currentNode.value;
+      }
+
+      currentNode = currentNode.next;
+    }
+
+    return null;
+  }
 }
 
 const ht = new HashTable(30);
 ht.insert('Engineer', 'Javascript');
 ht.insert('Engineer', 'React');
 ht.insert('Developer', 'Google');
-console.log(ht);
+console.log(ht.get('Developer'));
