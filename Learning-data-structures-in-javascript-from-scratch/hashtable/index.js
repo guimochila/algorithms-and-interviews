@@ -58,6 +58,20 @@ class HashTable {
 
     return null;
   }
+
+  retrieveAll() {
+    let result = [];
+
+    for (let i = 0; i < this.numberOfBuckets; i++) {
+      let currentNode = this.buckets[i];
+      while (currentNode) {
+        result.push(currentNode);
+        currentNode = currentNode.next;
+      }
+    }
+
+    return result;
+  }
 }
 
 const ht = new HashTable(30);
@@ -65,3 +79,4 @@ ht.insert('Engineer', 'Javascript');
 ht.insert('Engineer', 'React');
 ht.insert('Developer', 'Google');
 console.log(ht.get('Developer'));
+console.log(ht.retrieveAll());
