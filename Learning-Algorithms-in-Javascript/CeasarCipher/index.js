@@ -49,5 +49,25 @@ function ceasarCipher2(string, number) {
   return output;
 }
 
+// Ceasar Cipher rot13 from FreeCodeCamp
+function rot13(str) {
+  let decoded = '';
+
+  for (let i = 0; i < str.length; i++) {
+    let charCode = str[i].charCodeAt();
+
+    if (charCode >= 65 && charCode <= 77) {
+      decoded += String.fromCharCode(charCode + 13);
+    } else if (charCode >= 78 && charCode <= 90) {
+      decoded += String.fromCharCode(charCode - 13);
+    } else {
+      decoded += str[i];
+    }
+  }
+
+  return decoded;
+}
+
 console.log(ceasarCipher('Zoo keeper', 2));
 console.log(ceasarCipher('Big car', -16));
+console.log(rot13('SERR PBQR PNZC'));
