@@ -3,17 +3,6 @@
   capitalize the first letter of each string in the array.
 */
 
-// function capitalizeFirst(arr) {
-//   let capitalized = [];
-
-//   if (arr.length === 0) {
-//     return arr;
-//   }
-
-//   capitalized.push(arr[0].toUpperCase());
-//   return capitalized.concat(capitalizeFirst(arr.slice(1)));
-// }
-
 function capitalizeFirst(arr) {
   if (!arr.length) return [];
   return [
