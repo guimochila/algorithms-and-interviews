@@ -1,7 +1,7 @@
 class Node {
-  constructor(value) {
+  constructor(value, next = null) {
     this.value = value;
-    this.next = null;
+    this.next = next;
   }
 }
 
@@ -21,11 +21,59 @@ class LinkedList {
   }
 
   prepend(value) {
-    const node = new Node(value);
-    node.next = this.head;
-    this.head = node;
+    this.head = new Node(value, this.head);
     this.length++;
     return;
+  }
+
+  insert(index, value) {
+    if (index >= this.length) {
+      return this.append(value);
+    }
+    let previousNode = this.getAt(index - 1);
+    previousNode.next = new Node(value, previousNode.next);
+  }
+
+  remove(index) {
+    if (index > this.length) {
+      return null;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let previousNode = this.getAt(index - 1);
+    let currentNode = previousNode.next;
+    previousNode.next = currentNode.next;
+    this.length--;
+    return;
+  }
+
+  getAt(index) {
+    let node = this.head;
+    let counter = 0;
+
+    while (node) {
+      if (counter === index) {
+        return node;
+      }
+      counter++;
+      node = node.next;
+    }
+  }
+
+  printList() {
+    const array = [];
+    let currentNode = this.head;
+
+    while (currentNode) {
+      array.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+
+    return array;
   }
 }
 
@@ -33,4 +81,6 @@ const myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(6);
 myLinkedList.prepend(11);
-console.log(myLinkedList);
+myLinkedList.insert(1, 22);
+myLinkedList.remove(1);
+console.log(myLinkedList.printList());
